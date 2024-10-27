@@ -17,9 +17,7 @@ public class SpringaiApplication {
 	public CommandLineRunner runner(ChatClient.Builder builder) {
 		return args -> {
 			ChatClient chatClient = builder.build();
-			String response = chatClient.prompt(
-					"Give me 5 video idea for my youtube channel focused on programming and AI with sarcastic side to it")
-					.call().content();
+			String response = chatClient.prompt("Give me sarcastic haiku about life as a software developer and small-time Youtube influencer.").call().content();
 			System.out.println(response);
 		};
 	}
