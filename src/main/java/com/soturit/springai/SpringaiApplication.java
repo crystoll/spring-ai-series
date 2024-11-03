@@ -13,13 +13,13 @@ public class SpringaiApplication {
 		SpringApplication.run(SpringaiApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner runner(ChatClient.Builder builder) {
-		return args -> {
-			ChatClient chatClient = builder.build();
-			String response = chatClient.prompt("Give me sarcastic haiku about life as a software developer and small-time Youtube influencer.").call().content();
-			System.out.println(response);
-		};
-	}
+	// @Bean
+	// public CommandLineRunner runner(ChatClient.Builder builder) {
+	// 	return args -> {
+	// 		ChatClient chatClient = builder.build();
+	// 		String response = chatClient.prompt("Give me sarcastic haiku about life as a software developer and small-time Youtube influencer.").call().content();
+	// 		System.out.println(response);
+	// 	};
+	// }
 
 }
