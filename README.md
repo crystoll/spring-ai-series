@@ -18,7 +18,7 @@ This is a repository for series of video tutorials on Spring AI + Spring Boot. A
 ## Episodes
 
 1. [Spring AI: Introduction to SpringAI, Spring Boot, and OpenAI](https://www.youtube.com/watch?v=_ri2mEEcQHQ)
-2. [Spring AI: Using Spring AI from Spring Boot RESTful service (with UI)](TOBEDONE)
+2. [Spring AI: Using Spring AI from Spring Boot RESTful service (with UI)](https://www.youtube.com/watch?v=v_4n1p4b7eY)
 
 
 
