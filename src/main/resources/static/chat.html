@@ -57,7 +57,7 @@
       methods: {
         async getChatResponse() {
           try {
-            const response = await axios.get(`http://localhost:8080/chatbot/chatthatforgets?prompt=${encodeURIComponent(this.prompt)}`);
+            const response = await axios.get(`http://localhost:8080/chatbot/chat?prompt=${encodeURIComponent(this.prompt)}`);
             this.responseMessage = response.data.response;
           } catch (error) {
             this.responseMessage = 'Error getting response!';
