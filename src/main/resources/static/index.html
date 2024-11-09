@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hacker Excuse Generator</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Spring AI Demo App</title>
   <style>
     body {
       background-color: black;
@@ -36,35 +34,24 @@
     button {
       cursor: pointer;
     }
+    .link-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div id="app">
-    <h2>Excuse Generator</h2>
-    <input type="text" v-model="reason" placeholder="Enter reason..." />
-    <button @click="generateExcuse">Generate Excuse</button>
-    <p v-if="responseMessage">{{ responseMessage }}</p>
+    <h2>Spring AI Demo</h2>
+    <p>Explore our demo pages:</p>
+    <a href="excuses.html" class="link-button">Excuses</a>
+    <a href="chat.html" class="link-button">Chat</a>
   </div>
-
-  <script>
-    Vue.createApp({
-      data() {
-        return {
-          reason: '',
-          responseMessage: ''
-        }
-      },
-      methods: {
-        async generateExcuse() {
-          try {
-            const response = await axios.get(`http://localhost:8080/ai/excusefor?reason=${encodeURIComponent(this.reason)}`);
-            this.responseMessage = response.data.message;
-          } catch (error) {
-            this.responseMessage = 'Error generating excuse!';
-          }
-        }
-      }
-    }).mount('#app');
-  </script>
 </body>
 </html>
