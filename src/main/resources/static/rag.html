@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrieval Augmented Generation (RAG)</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #app {
+      text-align: center;
+      max-width: 400px;
+    }
+    input[type="text"], button {
+      background-color: #1a1a1a;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 8px;
+      margin: 5px;
+      width: 100%;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 5px #00ff00;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>Retrieval Augmented Generation (RAG)</h2>
+    <input type="text" v-model="question" placeholder="Ask a TIOBE question" />
+    <button @click="askRAG">ASK</button>
+    <p v-if="responseMessage">{{ responseMessage }}</p>
+  </div>
+
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          question: '',
+          responseMessage: ''
+        }
+      },
+      methods: {
+        async askRAG() {
+          try {
+            const response = await axios.get(`http://localhost:8080/ragclient?query=${encodeURIComponent(this.question)}`);
+            this.responseMessage = response.data;
+          } catch (error) {
+            this.responseMessage = 'Error asking the RAG!';
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
